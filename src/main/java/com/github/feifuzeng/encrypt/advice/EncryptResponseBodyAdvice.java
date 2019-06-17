@@ -1,5 +1,6 @@
-package com.feifz.encrypt.advice;
+package com.github.feifuzeng.encrypt.advice;
 
+import com.github.feifuzeng.encrypt.util.AesEncryptUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.feifz.encrypt.anno.Encrypt;
-import com.feifz.encrypt.auto.EncryptProperties;
-import com.feifz.encrypt.util.AesEncryptUtils;
+import com.github.feifuzeng.encrypt.anno.Encrypt;
+import com.github.feifuzeng.encrypt.auto.EncryptProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**

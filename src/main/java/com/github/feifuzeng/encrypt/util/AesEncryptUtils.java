@@ -1,4 +1,4 @@
-package com.feifz.encrypt.util;
+package com.github.feifuzeng.encrypt.util;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

@@ -1,4 +1,4 @@
-package com.feifz.encrypt.anno;
+package com.github.feifuzeng.encrypt.anno;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -6,8 +6,9 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import com.github.feifuzeng.encrypt.auto.EncryptAutoConfiguration;
 import org.springframework.context.annotation.Import;
-import com.feifz.encrypt.auto.EncryptAutoConfiguration;
 
 /**
  * 启用加密Starter

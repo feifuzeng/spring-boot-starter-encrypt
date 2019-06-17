@@ -1,9 +1,10 @@
-package com.feifz.encrypt.advice;
+package com.github.feifuzeng.encrypt.advice;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 
+import com.github.feifuzeng.encrypt.util.AesEncryptUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +16,8 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdvice;
 
-import com.feifz.encrypt.anno.Decrypt;
-import com.feifz.encrypt.auto.EncryptProperties;
-import com.feifz.encrypt.util.AesEncryptUtils;
+import com.github.feifuzeng.encrypt.anno.Decrypt;
+import com.github.feifuzeng.encrypt.auto.EncryptProperties;
 
 /**
  * 请求数据接收处理类<br>

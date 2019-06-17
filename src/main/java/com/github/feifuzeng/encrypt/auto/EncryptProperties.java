@@ -1,4 +1,4 @@
-package com.feifz.encrypt.auto;
+package com.github.feifuzeng.encrypt.auto;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

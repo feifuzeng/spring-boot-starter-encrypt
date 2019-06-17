@@ -1,4 +1,4 @@
-package com.feifz.encrypt.filter;
+package com.github.feifuzeng.encrypt.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,14 +15,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.github.feifuzeng.encrypt.util.AesEncryptUtils;
+import com.github.feifuzeng.encrypt.util.JsonUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpMethod;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.feifz.encrypt.auto.EncryptProperties;
-import com.feifz.encrypt.util.AesEncryptUtils;
-import com.feifz.encrypt.util.JsonUtils;
+import com.github.feifuzeng.encrypt.auto.EncryptProperties;
 
 /**
  * 请求签名验证过滤器<br>
