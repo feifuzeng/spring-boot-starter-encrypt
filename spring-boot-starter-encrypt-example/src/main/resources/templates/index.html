@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据传输解密示例</title>
+	</head>
+	<script type="text/javascript" src = "js/aes.js"></script>
+	<script type="text/javascript" src = "js/crypto-js.js"></script>
+	<script type="text/javascript" src = "js/pad-zeropadding.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<body>
+	<input type="button" value="获取数据" onclick="getData()"/>
+	<hr>
+	<br>
+	姓名：<input type="text" id="name" /><br>
+	性别：<input type="text" id="gender" /><br>
+	<input type="button" value="发送数据" onclick="sendData()"/>
+	<script>
+	var backUrl ='';
+	//var backUrl ='http://localhost:8080';
+	function getData() {
+		$.ajax({
+	        type: "GET",
+	        url:backUrl+"/user/list",
+	        success: function(resData) {
+	        	alert("返回的数据："+resData);
+	        	alert("解密之后的数据："+Decrypt(resData));
+	        }
+		});
+	}
+	
+	function sendData() {
+	var name=document.getElementById("name").value;
+	var gender=document.getElementById("gender").value;
+		alert("发送的数据："+JSON.stringify({"name":name,"gender":gender}));
+		$.ajax({
+	        type: "POST",
+	        url:backUrl+"/user/queryList",
+	        data:JSON.stringify({"name":name,"gender":gender}),
+	        dataType:'json',
+	        contentType: "application/json",
+	        success: function(resData) {
+	        	alert("返回的数据："+resData);
+	        	alert("解密之后："+Decrypt(resData));
+	        }
+		}); 
+	}
+	
+	var key = CryptoJS.enc.Utf8.parse("abcdef0123456789");
+	function Encrypt(word) {
+		var srcs = CryptoJS.enc.Utf8.parse(word);
+		var encrypted = CryptoJS.AES.encrypt(srcs, key, {
+			mode : CryptoJS.mode.ECB,
+			padding : CryptoJS.pad.Pkcs7
+		});
+		return encrypted.toString();
+	}
+	
+	function Decrypt(word) {
+		var decrypt = CryptoJS.AES.decrypt(word, key, {
+			mode : CryptoJS.mode.ECB,
+			padding : CryptoJS.pad.Pkcs7
+		});
+		return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+	}
+	
+	</script>  
+</body>
+
+</html>
